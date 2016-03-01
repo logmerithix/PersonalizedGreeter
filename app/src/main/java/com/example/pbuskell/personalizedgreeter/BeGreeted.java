@@ -10,12 +10,15 @@ import android.widget.EditText;
 
 public class BeGreeted extends AppCompatActivity {
 
-    String strUsersName = "";
+    String strFirstName = "";
+    String strLastName = "";
+    String strTitleName = "";
 
     Button btnGreetMe;
-    EditText edtxtNameField;
+    EditText edtxtFirstNameField;
     TextView txtvwGreetingSpace;
-
+    EditText edtxtLastNameField;
+    EditText edtxtTitleNameField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +26,20 @@ public class BeGreeted extends AppCompatActivity {
         setContentView(R.layout.activity_be_greeted);
 
         btnGreetMe = (Button) findViewById(R.id.btnGreetMe);
-        edtxtNameField = (EditText) findViewById(R.id.edtxtNameField);
+        edtxtFirstNameField = (EditText) findViewById(R.id.edtxtFirstNameField);
         txtvwGreetingSpace = (TextView) findViewById(R.id.txtvwGreetingSpace);
+        edtxtLastNameField = (EditText) findViewById(R.id.edtxtLastNameField);
+        edtxtTitleNameField = (EditText) findViewById(R.id.edtxtTitleNameField);
     }
 
     public void greetTheUser(View vw)
     {
         Resources res = getResources();
 
-        strUsersName = edtxtNameField.getText().toString();
+        strFirstName = edtxtFirstNameField.getText().toString();
+        strLastName = edtxtLastNameField.getText().toString();
+        strTitleName = edtxtTitleNameField.getText().toString();
 
-        txtvwGreetingSpace.setText(String.format(res.getString(R.string.strGreeting), strUsersName));
+        txtvwGreetingSpace.setText(String.format(res.getString(R.string.strGreeting), strTitleName, strFirstName, strLastName));
     }
 }
